@@ -28,7 +28,7 @@ public class RockPaperScissors {
         int tie = 0;
         int win = 0;
         int lose = 0;
-        
+        String winner;
         System.out.println("Welcome to Rock Paper Scissors game!!!");
      
         do{
@@ -113,7 +113,8 @@ public class RockPaperScissors {
             System.out.println("Wins: " + win);
             System.out.println("Loses: " + lose);
             System.out.println("Ties: " + tie);
-            
+            winner = declareResult(win, lose, tie);
+            System.out.println(winner);
             System.out.print("Do you want to play again ? y/n : ");
             //it's taking char input
             playAgain = myScan.next().charAt(0);
@@ -135,5 +136,20 @@ public class RockPaperScissors {
         
         return  rand.nextInt(3);
         
+    }
+    
+    public static String declareResult(int w, int l, int t){
+        
+        String winner;
+        
+        if(w > l){
+            winner =  "you won";
+        }else if(w < l){
+            winner = "computer won"; 
+        }else{
+            winner = "it's tie";
+        }
+        
+        return winner;
     }
 }
